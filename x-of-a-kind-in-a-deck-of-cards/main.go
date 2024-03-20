@@ -3,14 +3,14 @@ package x_of_a_kind_in_a_deck_of_cards
 // https://leetcode.com/problems/x-of-a-kind-in-a-deck-of-cards/description/
 
 func hasGroupsSizeX(deck []int) bool {
-	res := make(map[int]int)
+	freqs := make(map[int]int)
 
 	for _, card := range deck {
-		res[card]++
+		freqs[card]++
 	}
 
-	gcd := res[deck[0]]
-	for _, value := range res {
+	gcd := freqs[deck[0]]
+	for _, value := range freqs {
 		if value == 1 {
 			return false
 		}
