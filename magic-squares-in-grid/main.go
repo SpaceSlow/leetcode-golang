@@ -3,10 +3,6 @@ package magic_squares_in_grid
 // https://leetcode.com/problems/magic-squares-in-grid/
 
 func numMagicSquaresInside(grid [][]int) int {
-	if len(grid) < 3 || len(grid[0]) < 3 {
-		return 0
-	}
-
 	countMagicSquares := 0
 	for i := 0; i <= len(grid)-3; i++ {
 		for j := 0; j <= len(grid[0])-3; j++ {
