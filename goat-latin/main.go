@@ -17,23 +17,37 @@ func toGoatLatin(sentence string) string {
 }
 
 func toGoatLatinWord(word string, aNumber int) string {
+	s := strings.Builder{}
 	switch word[0] {
 	case 'a':
+		fallthrough
 	case 'e':
+		fallthrough
 	case 'o':
+		fallthrough
 	case 'i':
+		fallthrough
 	case 'u':
+		fallthrough
 	case 'A':
+		fallthrough
 	case 'E':
+		fallthrough
 	case 'O':
+		fallthrough
 	case 'I':
+		fallthrough
 	case 'U':
+		s.WriteString(word)
 	default:
-		word = word[1:] + string(word[0])
+		{
+			s.WriteString(word[1:])
+			s.WriteByte(word[0])
+		}
 	}
-	word += "ma"
+	s.WriteString("ma")
 	for i := 0; i < aNumber; i++ {
-		word += "a"
+		s.WriteRune('a')
 	}
-	return word
+	return s.String()
 }
